@@ -181,7 +181,7 @@ def process_user_question(user_id, question):
         vector_store = FAISS.load_local(
             f"faiss_indices/{user_id}_faiss_index", 
             embeddings, 
-            # allow_dangerous_deserialization=True
+            allow_dangerous_deserialization=True
         )
         docs = vector_store.similarity_search(question)
         chain = get_conversational_chain()
